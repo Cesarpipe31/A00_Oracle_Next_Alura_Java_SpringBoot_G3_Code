@@ -1,4 +1,4 @@
-package Api.rest.para.Voll.clinica.medico;
+package Api.rest.para.Voll.clinica.domain.medico;
 
 public record DatosListadoMedico(Long id, String nombre, String especialidad, String documento, String email) {
 

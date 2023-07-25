@@ -1,7 +1,6 @@
-package Api.rest.para.Voll.clinica.direccion;
+package Api.rest.para.Voll.clinica.domain.direccion;
 
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Embedded;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

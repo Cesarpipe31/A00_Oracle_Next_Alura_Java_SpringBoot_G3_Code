@@ -1,6 +1,6 @@
-package Api.rest.para.Voll.clinica.medico;
+package Api.rest.para.Voll.clinica.domain.medico;
 
-import Api.rest.para.Voll.clinica.direccion.Direccion;
+import Api.rest.para.Voll.clinica.domain.direccion.Direccion;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
