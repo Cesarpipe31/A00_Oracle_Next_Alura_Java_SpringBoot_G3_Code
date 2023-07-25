@@ -1,6 +1,8 @@
 package Api.rest.para.Voll.clinica.controller;
 
 import Api.rest.para.Voll.clinica.domain.usuarios.DatosAutenticacionUsuario;
+import Api.rest.para.Voll.clinica.domain.usuarios.Usuario;
+import Api.rest.para.Voll.clinica.infra.security.DatosJWTToken;
 import Api.rest.para.Voll.clinica.infra.security.TokenService;
 import com.auth0.jwt.JWT;
 import jakarta.validation.Valid;
@@ -27,8 +29,8 @@ public class AutenticacionController {
     public ResponseEntity autenticarUsuario(@RequestBody @Valid DatosAutenticacionUsuario datosAutenticacionUsuario){
         Authentication authToken = new UsernamePasswordAuthenticationToken(datosAutenticacionUsuario.login(),
                 datosAutenticacionUsuario.clave());
-        authenticationManager.authenticate(authToken);
-        var JWTtoken = tokenService.generarToken();
-        return ResponseEntity.ok(JWTtoken);
+        var usuarioAutenticado = authenticationManager.authenticate(authToken);
+        var JWTtoken = tokenService.generarToken((Usuario) usuarioAutenticado.getPrincipal());
+        return ResponseEntity.ok(new DatosJWTToken(JWTtoken));
     }
 }
